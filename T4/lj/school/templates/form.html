@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="post">
+        {% csrf_token %}
+         Faculty Name:
+        <input type="text" name="fac_name"/>
+        <br>
+        Subject:
+         <input type="text" name="sub"/>
+         <br>
+         Score:
+        <input type="Number" name="score"/>
+        <br>
+        Email:
+        <input type="email" name="email" />
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

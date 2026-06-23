@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Faculty</th>
+            <th>Subject</th>
+            <th>Score</th>
+            <th>Email</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+    {% for data in evaluation  %}
+        <tr>
+            <td><a href="{% url 'info' data.id %}" >{{data.id}}</a></td>
+            <td>{{data.fac_name}}</td>
+            <td>{{data.sub}}</td>
+            <td>{{data.score}}</td>
+            <td>{{data.email}}</td>
+            <td><button>Update</button></td>
+            <td><button>Delete</button></td>
+        </tr>
+    {% endfor %}
+    </table>
+        <a href="{% url 'form' %}">Form</a>
+
+    
+</body>
+</html>
