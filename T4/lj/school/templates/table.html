@@ -23,8 +23,8 @@
             <td>{{data.sub}}</td>
             <td>{{data.score}}</td>
             <td>{{data.email}}</td>
-            <td><button>Update</button></td>
-            <td><button>Delete</button></td>
+            <td><a href="{% url 'update' data.id %}">Update</a></td>
+            <td><a href="{% url 'delete' data.id %}">delete</a></td>
         </tr>
     {% endfor %}
     </table>

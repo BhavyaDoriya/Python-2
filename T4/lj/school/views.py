@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from school.models import Evaluation
 # Create your views here.
 def home(request):
@@ -18,3 +18,17 @@ def form(request):
         Evaluation.objects.create(fac_name=name,sub=sub,score=score,email=email)
         return redirect('table')
     return render(request,"form.html")
+def update(request,id):
+    fac=get_object_or_404(Evaluation,id=id)
+    if request.method=="POST":
+        fac.fac_name=request.POST['fac_name']
+        fac.sub=request.POST['sub']
+        fac.score=request.POST['score']
+        fac.email=request.POST['email']
+        fac.save()
+        return redirect('table')
+    return render(request,"update.html",{"fac":fac})
+def delete(request,id):
+    fac=get_object_or_404(Evaluation,id=id)
+    fac.delete()
+    return redirect('table')
